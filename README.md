@@ -66,7 +66,7 @@ We use pedestrian trajectory data from three popular road traffic datasets for o
 **inD:** [[Paper]](https://ieeexplore.ieee.org/document/9304839) [[Data]](https://github.com/ika-rwth-aachen/drone-dataset-tools)
 
 
-**SDD:** [[Paper]]() [[Data]]()
+**SDD:** [[Paper]](https://link.springer.com/chapter/10.1007/978-3-319-46484-8_33) [[Data]](https://cvgl.stanford.edu/projects/uav_data/)
 
 
 ---
