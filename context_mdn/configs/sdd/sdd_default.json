@@ -1,0 +1,63 @@
+{
+    "paths":
+    {
+        "train_data_path": "/workspace/data/datasets/sdd/processed/sdd_train_scene_data.pickle",
+        "eval_data_path": "/workspace/data/datasets/sdd/processed/sdd_eval_scene_data.pickle",
+        "test_data_path": "/workspace/data/datasets/sdd/processed/sdd_test_scene_data.pickle",
+        "result_path": "/workspace/data/trained_models"
+    },
+    "grid_params": 
+    {
+        "grid_size_meter": 10,
+        "target_grid_size_cells": 128
+    },
+    "model_params": 
+    {
+        "lstm_input_dim": 6,
+        "lstm_hidden_size": 32,
+        "lstm_layer_size": 1,
+        "grid_feature_size": 512,
+        "grid_head_size": 4,
+        "grid_input_dim": 3,
+        "tf_model_dim": 32,
+        "tf_head_size": 4,
+        "tf_layer_size": 2,
+        "tf_forward_dim": 64,
+        "mdn_num_layers": 3,
+        "mdn_output_dim": 6,
+        "mdn_num_gaussians": 9,
+        "input_horizon": 10,
+        "forecast_horizon": 5,
+        "gt_feature_dim": 2,
+        "dropout_prob": 0.2
+    },
+    "train_params": 
+    {
+        "delta_t": 0.1,
+        "num_total_epochs": 100,
+        "num_warmup_epochs": 25,
+        "batch_size": 256,
+        "train_data_subset_size": 1.0,
+        "build_mixture_variance_epsilon": 1e-3,
+        "output_horizons": [9,19,29,39,49],
+        "confidence_levels": [0.95, 0.68],
+        "start_learning_rate": 1e-4,
+        "max_learning_rate": 1e-3,
+        "final_learning_rate": 1e-5,
+        "weight_decay_val": 1e-4,
+        "clip_grad_norm": 2.0,
+        "dataloader_num_workers": 8,
+        "dataloader_prefetch": 8,
+        "cost_weight": 0.005,
+        "plot_examples": true,
+        "plot_epoch_step": 10,
+        "plot_batch_step": 4,
+        "auto_save_step": 10
+    },
+    "test_params": 
+    {
+        "batch_size": 128,
+        "plot_examples": true,
+        "plot_batch_step": 4
+    }
+}

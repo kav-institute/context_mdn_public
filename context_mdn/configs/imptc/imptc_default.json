@@ -1,0 +1,75 @@
+{
+    "paths":
+    {
+        "train_data_path": "/workspace/data/datasets/imptc/processed/imptc_train_scene_data.pickle",
+        "eval_data_path": "/workspace/data/datasets/imptc/processed/imptc_eval_scene_data.pickle",
+        "test_data_path": "/workspace/data/datasets/imptc/processed/imptc_test_scene_data.pickle",
+        "result_path": "/workspace/data/trained_models"
+    },
+    "grid_params": 
+    {
+        "grid_size_meter": 10,
+        "target_grid_size_cells": 128
+    },
+    "model_params": 
+    {
+        "with_grid": true,
+        "with_social": true,
+        "lstm_input_dim": 6,
+        "lstm_hidden_size": 128,
+        "lstm_layer_size": 1,
+        "grid_feature_size": 256,
+        "grid_head_size": 4,
+        "grid_input_dim": 3,
+        "tf_model_dim": 128,
+        "tf_head_size": 2,
+        "tf_layer_size": 2,
+        "tf_forward_dim": 128,
+        "mdn_hidden_size": 384,
+        "mdn_output_dim": 6,
+        "mdn_num_gaussians": 9,
+        "input_horizon": 10,
+        "forecast_horizon": 8,
+        "gt_feature_dim": 2,
+        "dropout_prob": 0.3,
+        "mdn_dropout_prob": 0.2
+    },
+    "train_params": 
+    {
+        "with_resume_train": false,
+        "pre_train_weights": "model_weights_latest.pt",
+        "auto_increment": true,
+        "auto_increment_upper_bound": 2e4,
+        "auto_increment_lower_bound": 5e3,
+        "delta_t": 0.1,
+        "num_total_epochs": 100,
+        "batch_size": 128,
+        "train_data_size": 1.0,
+        "eval_data_size": 0.5,
+        "build_mixture_variance_epsilon": 1e-5,
+        "output_horizons": [4,9,14,19,24,29,34,39],
+        "confidence_levels": [0.95, 0.68],
+        "start_learning_rate": 1e-3,
+        "final_learning_rate": 5e-5,
+        "weight_decay_val": 1e-4,
+        "clip_grad_norm": 5.0,
+        "dataloader_num_workers": 8,
+        "dataloader_prefetch": 8,
+        "num_samples": 1000,
+        "cost_weight": 0.005,
+        "plot_examples": true,
+        "plot_epoch_step": 50,
+        "plot_batch_step": 8,
+        "auto_save_step": 1
+    },
+    "test_params": 
+    {
+        "test_data_size": 1.0,
+        "batch_size": 16,
+        "k_predictions": 20,
+        "voronoi_iters": 10,
+        "voronoi_grid_size": 128,
+        "plot_examples": true,
+        "plot_batch_step": 4
+    }
+}
